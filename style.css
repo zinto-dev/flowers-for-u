@@ -1019,12 +1019,24 @@ mask-image: linear-gradient(to top, transparent 40%, #6e1c39 80%) !important;
 
 .message {
   display: flex;
-  justify-content: space-between; /* Pushes text-1 to the left and text-2 to the right */
+  justify-content: space-between; 
   align-items: flex-start;
   font-family: 'Cedarville Cursive', cursive;
   font-size: 3rem;
   color: #ffccd5;
   text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+  /* Ensure the container doesn't overflow */
+  flex-wrap: wrap; 
+}
+
+/* This is the mobile fix */
+@media (max-width: 600px) {
+  .message {
+    flex-direction: column; /* Stacks them vertically on phones */
+    align-items: center;    /* Centers them */
+    font-size: 2rem;        /* Slightly smaller text for mobile screens */
+    gap: 0.5rem;            /* Adds a little space between stacked lines */
+  }
 }
 
 /* Natural handwriting reveal */
@@ -1047,4 +1059,7 @@ mask-image: linear-gradient(to top, transparent 40%, #6e1c39 80%) !important;
     transform: translateY(0) skewX(0deg);
     filter: blur(0px);
   }
+}
+audio {
+  display: none;
 }
